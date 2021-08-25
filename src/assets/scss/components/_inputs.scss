@@ -1,0 +1,52 @@
+input[type=range], input[type=color] {
+    cursor: pointer;
+}
+
+input[type=text] {
+    background: transparent;
+}
+
+input[type=range] {
+    &.ipt-size {
+        @include zoomOnHover(0.2s, ease, 1.1);
+    }
+}
+
+input[type=color] {
+    @include zoomOnHover(0.2s, ease, 1.2);
+    background: none;
+    border: none;
+
+    &::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+    &::-webkit-color-swatch {
+        border:none;
+    } 
+}
+
+.canvas-background-picker, .tool-color-picker {
+    @include iconSize();
+    position: relative;
+
+    &::before {
+        @include fullSize();
+        position: absolute;
+        content: "";
+    }
+}
+
+.canvas-background-picker {
+    &::before {
+        background: url('../images/canvas-background-picker.svg');
+    }
+}
+
+.tool-color-picker {
+    &::-webkit-color-swatch {
+        border-radius: 25%;
+    }
+    &::before {
+        background: url('../images/color-picker.svg');
+    }
+}

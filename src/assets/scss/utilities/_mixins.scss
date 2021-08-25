@@ -1,0 +1,48 @@
+@mixin flex() {
+    display: flex;
+}
+
+@mixin flexWith($direction: row, $horizontal-position: stretch, $vertical-position: flex-start) {
+    @include flex();
+    flex-direction: $direction;
+    align-items: $horizontal-position; 
+    justify-content: $vertical-position;
+}
+
+@mixin shapeCircle() {
+    border-radius: 50%;
+}
+
+@mixin iconSize() {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+@mixin zoomOnHover($second: 0.2s, $ease: ease, $scale: 1.2) {
+    transition: transform $second $ease;
+
+    &:hover {
+        transform: scale($scale);
+    }
+}
+
+@mixin pseduoElementPosition($position: absolute, $left: 0, $top: 0) {
+    position: $position;
+    left: $left;
+    top: $top;
+}
+
+@mixin position($left: 0, $top: 0) {
+    left: $left;
+    top: $top;
+}
+
+@mixin fullSize() {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin size($width: 0, $height: 0) {
+    width: $width;
+    height: $height;
+}

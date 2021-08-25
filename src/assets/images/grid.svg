@@ -1,0 +1,38 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <!-- Background -->
+    <rect 
+        width="96%"
+        height="96%"
+        x="2%"
+        y="2%"
+        stroke-width="3"
+        stroke="black"
+        fill="white"
+    />
+
+    <!-- Vertical lines -->
+    <path 
+        d="M33,0 L33,98"
+        stroke="black"
+        stroke-width="3"
+    />
+
+    <path
+        d="M66,0 L66,98"
+        stroke="black"
+        stroke-width="3"
+    />
+
+    <!-- Horizontal lines -->
+    <path
+        d="M2,33 L98,33"
+        stroke-width="3"
+        stroke="black"
+    />
+    
+    <path
+        d="M2,66 L98,66"
+        stroke-width="3"
+        stroke="black"
+    />
+</svg>

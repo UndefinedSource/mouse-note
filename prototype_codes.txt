@@ -1,0 +1,4 @@
+// create span element
+    const ele: HTMLSpanElement = document.createElement('span')
+    ele.textContent = 'dsfdsf'
+    ele.setAttribute('style', 'position: absolute; left: 500px; right: 500px;');

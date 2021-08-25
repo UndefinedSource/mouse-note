@@ -1,0 +1,12 @@
+svg {
+    cursor: pointer;
+    * {
+        fill: $white;
+    }
+    @include zoomOnHover;
+
+    .background-element {
+        fill: $sub-panel-background-color;
+        stroke: none;
+    }
+}

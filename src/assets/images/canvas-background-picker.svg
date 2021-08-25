@@ -1,0 +1,26 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <!-- Right mountain -->
+    <polygon
+        points="40,80, 65,20, 90,80"
+        stroke="black"
+        stroke-width="3" 
+        fill="white"
+    />
+
+    <!-- Left mountain -->
+    <polygon
+        points="10,90, 35,30, 60,90"
+        stroke="black"
+        stroke-width="3"
+        fill="white"
+    />
+
+    <!-- Sun -->
+    <circle 
+        cx="85"
+        cy="15" 
+        r="7"
+        stroke="black"
+        stroke-width="3"
+        fill="white"/>
+</svg>

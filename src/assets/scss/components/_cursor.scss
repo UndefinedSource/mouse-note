@@ -1,0 +1,39 @@
+.cursor {
+    position: absolute;
+    left: var(--x);
+    background-color: var(--color);
+    pointer-events: none; // prevent div blocking clickable elements
+
+    &.crosshair {
+        @include size(var(--size), 1px);
+        top: var(--y);
+
+        &:before {
+            @include pseduoElementPosition(absolute, var(--crosshairVerticalX), var(--crosshairVerticalY));
+            height: var(--size);
+            border-left: 1px solid var(--color);
+            content: "";
+        }
+    }
+
+    &.circle, &.square {
+        @include size(var(--size), var(--size));
+        top: var(--y);
+    }
+
+    &.circle {
+        @include shapeCircle();
+    }
+}
+
+.shape-previewer {
+    @include pseduoElementPosition(absolute, var(--x), var(--y));
+    @include size(var(--width), var(--height));
+    display: var(--display);
+    background-color: var(--backgroundColor);
+    border-style: dashed;
+    border-color: $black;
+    border-radius: var(--borderRadius);
+    pointer-events: none;
+    opacity: 0.1;
+}

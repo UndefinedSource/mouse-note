@@ -1,0 +1,12 @@
+.grid-line {
+    position: absolute;
+    background-color: $black;
+
+    &.vertical {
+        width: 1px;
+    }
+    &.horizontal {
+        @include size(100%, 1px);
+        left: 0;
+    }
+}

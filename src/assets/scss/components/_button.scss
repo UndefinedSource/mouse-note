@@ -1,0 +1,32 @@
+button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.color-palette {
+    .btn {
+        &.color, &.tool-color-picker {
+            @include iconSize();
+            @include zoomOnHover();
+            border-radius: 25%;
+
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+.icon {
+    @include iconSize();
+    @include zoomOnHover();
+    background-color: transparent;
+
+    @each $icon in $icons {
+        &.#{$icon} {
+            background-image: url('../images/#{$icon}.svg');
+        }
+    }
+}
+
