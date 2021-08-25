@@ -1,0 +1,67 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <!-- Lid handle -->
+    <rect
+        width="20"
+        height="14" 
+        x="39.5"
+        y="1.5"
+        stroke="black"
+        stroke-width="3"
+        fill="white"
+    />
+    
+    <!-- Lid -->
+    <rect
+        width="97"
+        height="15"
+        x="1.5"
+        y="16"
+        stroke="black"
+        stroke-width="3"
+        fill="white"
+    />
+
+    <!-- Body -->
+    <rect
+        width="80"
+        height="66"
+        x="10"
+        y="32"
+        stroke="black"
+        stroke-width="3"
+        fill="white"
+    />
+
+    <!-- Body left bar -->
+    <rect
+        width="11.4"
+        height="49"
+        x="21.4"
+        y="40.5"
+        stroke="black"
+        stroke-width="3"
+        fill="white"
+    />
+
+    <!-- Body middle bar -->
+    <rect
+        width="11.4"
+        height="49"
+        x="44.2"
+        y="40.5"
+        stroke="black"
+        stroke-width="3"
+        fill="white"
+    />
+
+    <!-- Body right bar -->
+    <rect
+        width="11.4"
+        height="49"
+        x="67"
+        y="40.5"
+        stroke="black"
+        stroke-width="3"
+        fill="white"
+    />
+</svg>
