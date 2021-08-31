@@ -66,6 +66,12 @@ export const Cursor: React.FC<Props> = React.memo(({ canvasRef, panelRef, tool }
         return SHAPE.getCircle(dragPosition.x, dragPosition.y, position.x, position.y);
     }, [position, dragPosition]);
 
+    const getTouchPosition = (e: TouchEvent): Type.Position => {
+        const x = e.targetTouches[0].clientX;
+        const y = e.targetTouches[0].clientY;
+        return { x, y };
+    };
+
     const drawShapeRectangle = useCallback((): void => {
         const ctx = getCanvasContext();
         if (!ctx) return;
@@ -144,6 +150,22 @@ export const Cursor: React.FC<Props> = React.memo(({ canvasRef, panelRef, tool }
         }
     }, [tool.mode, drawPen, drawCircle, drawSquare]);
 
+    const updatePositionState = useCallback((x: number, y: number) => {
+        setPosition((prevState : any) => ({
+            ...prevState,
+            x: x, 
+            y: y,
+        }));
+    }, []);
+
+    const updateDragPositionState = useCallback((x: number, y: number) => {
+        setDragPosition((prevState : any) => ({
+            ...prevState,
+            x: x, 
+            y: y,
+        }));
+    }, []);
+
     const mouseUp = useCallback((): void => {
         setDrawable(false);
         /* 
@@ -171,29 +193,30 @@ export const Cursor: React.FC<Props> = React.memo(({ canvasRef, panelRef, tool }
         setDrawable(true);
 
         if (isShapeMode()) {
-            setDragPosition(prevState => ({
-                ...prevState,
-                x: position.x,
-                y: position.y,
-            }));
+            updateDragPositionState(position.x, position.y);
         }
-    }, [position, isShapeMode]);
+    }, [position, isShapeMode, updateDragPositionState]);
 
     const mouseMove = useCallback((e: MouseEvent): void => {
-        setPosition(prevState => ({
-            ...prevState, 
-            x: e.x,
-            y: e.y,
-        }));
-    }, []);
+        updatePositionState(e.x, e.y);
+    }, [updatePositionState]);
+
+    const touchStart = useCallback((e: TouchEvent): void => {
+        const { x, y } = getTouchPosition(e);
+
+        updatePositionState(x, y);
+
+        if (isShapeMode()) {
+            updateDragPositionState(x, y);
+        }
+    }, [isShapeMode, updatePositionState, updateDragPositionState]);
 
     const touchMove = useCallback((e: TouchEvent): void => {
-        setPosition(prevState => ({
-            ...prevState, 
-            x: e.targetTouches[0].clientX,
-            y: e.targetTouches[0].clientY,
-        }));
-    }, []);
+        const { x, y } = getTouchPosition(e);
+
+        setDrawable(true);
+        updatePositionState(x, y);
+    }, [updatePositionState]);
 
     const keyUp = useCallback((): void => {
         setIsShiftKeyOn(false);
@@ -216,7 +239,7 @@ export const Cursor: React.FC<Props> = React.memo(({ canvasRef, panelRef, tool }
     useEventListener(EVENT_LISTENER.KEY.UP, keyUp);
     useEventListener(EVENT_LISTENER.KEY.DOWN, keyDown);
 
-    useEventListener(EVENT_LISTENER.TOUCH.START, mouseDown);
+    useEventListener(EVENT_LISTENER.TOUCH.START, touchStart);
     useEventListener(EVENT_LISTENER.TOUCH.END, mouseUp);
     useEventListener(EVENT_LISTENER.TOUCH.MOVE, touchMove);
 
