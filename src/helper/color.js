@@ -28,7 +28,7 @@ exports.COLOR = {
             priorDigit++;
         }
         var priorHexDigit = this.convertNumToHex(priorDigit);
-        var currentHexDigit = this.convertNumToHex(currentDigit);
+        var currentHexDigit = this.convertNumToHex(value);
         return "" + priorHexDigit + currentHexDigit;
     },
     convertRgbToHex: function (value) {
