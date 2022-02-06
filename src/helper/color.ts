@@ -31,7 +31,7 @@ export const COLOR = {
         }
 
         const priorHexDigit: string = this.convertNumToHex(priorDigit);
-        const currentHexDigit: string = this.convertNumToHex(currentDigit);
+        const currentHexDigit: string = this.convertNumToHex(value);
 
         return `${priorHexDigit}${currentHexDigit}`;
     },
